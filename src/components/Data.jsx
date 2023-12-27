@@ -1,4 +1,4 @@
-export const dataList = [
+export const usersList = [
     {
         id:1,
         name:"Omar",
