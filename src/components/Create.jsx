@@ -7,7 +7,8 @@ const Create = () => {
   const [name , setName] = useState("");
   const [email , setEmail] = useState("");
   const dispatch = useDispatch();
-  const users = useSelector((state)=>state.users);
+  const userList = useSelector((state)=>state.users);
+  const users = userList.usersList;
   const navigate = useNavigate();
 
   const handleSubmit =(e)=>{

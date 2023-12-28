@@ -1,15 +1,23 @@
-import { useSelector } from "react-redux";
-import { Link  } from "react-router-dom";
-
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { deleteUser } from "../redux/reducers/users/UserSlice";
 
 const Home = () => {
-  const users = useSelector(state => state.users);
+  const userList = useSelector((state) => state.users);
+  const users = userList.usersList;
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(deleteUser({ id: id }));
+  };
 
   console.log(users);
   return (
     <div className="container">
       <h2>CRUD App with Json Server</h2>
-      <Link to="/create" className="btn btn-success my-3">Create + </Link>
+      <Link to="/create" className="btn btn-success my-3">
+        Create +{" "}
+      </Link>
       <table className="table">
         <thead>
           <tr>
@@ -20,17 +28,27 @@ const Home = () => {
           </tr>
         </thead>
         <tbody>
-        {users.map((user , index)=>(
-          <tr key={index}>
-            <td>{user.id}</td>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>
-              <Link to={`/edit/${user.id}`} className="btn btn-sm btn-primary">Edit</Link>
-              <button className="btn btn-sm btn-danger ms-2">Delete</button>
-            </td>
-          </tr>
-        ))}
+          {users.map((user, index) => (
+            <tr key={index}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>
+                <Link
+                  to={`/edit/${user.id}`}
+                  className="btn btn-sm btn-primary"
+                >
+                  Edit
+                </Link>
+                <button
+                  onClick={() => handleDelete(user.id)}
+                  className="btn btn-sm btn-danger ms-2"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
