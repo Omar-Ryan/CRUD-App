@@ -1,5 +1,14 @@
 # CRUD APPs
-## simple app to show how do you use Redux / Toolkits and ... .
+## simple app to show how do you use HTML5, CSS3, JavaScript , Bootstrap and Redux / Toolkits 
+### Add New Product:
+#### Form with data validation for accurate information.
+
+### Update Product:
+#### Easy editing interface for modifying product details.
+
+### Delete Product:
+#### Mechanism for users to remove products.
+
 ### React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
